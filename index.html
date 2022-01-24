@@ -97,8 +97,16 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
     var _selector = document.querySelector('input[name=dark-toggle]');
+    var _toggle_text = document.getElementById('toggle-text');
+    var selected = false;
       _selector.addEventListener('change', function (event) {
-        document.body.classList.toggle('dark-theme'); 
+        document.body.classList.toggle('dark-theme');
+        selected = !selected;
+        if (selected) {
+          _toggle_text.textContent = 'disable dark mode';
+        } else {
+          _toggle_text.textContent = 'enable dark mode';
+        }
       });
   });
 </script>
@@ -112,7 +120,7 @@
                 <a href="survey.html" style="text-decoration: none;">tell us what you think...</a>
             </div> -->
             <div style='padding-right:15px; margin-left: auto; display: flex; align-items: center;'>
-                <div style="padding-right: 5px;">enable dark mode</div>
+                <div id="toggle-text" style="padding-right: 5px;">enable dark mode</div>
                 <label class="switch">
                     <input name='dark-toggle' type="checkbox">
                     <span class="slider round"></span>
